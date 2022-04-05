@@ -29,7 +29,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: npm run build # Builds frontend & api
+      - run: npm run build # Builds front-end & api
       - persist_to_workspace:
           root: .
           paths:
