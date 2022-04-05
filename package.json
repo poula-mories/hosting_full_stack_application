@@ -6,7 +6,7 @@
     "build:fe": "cd udagram/udagram-frontend && npm run build",
     "build:api": "cd udagram/udagram-api && npm run build",
     "build": "npm-run-all build:*",
-    "deploy:fe": "aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
+    "deploy:fe": "aws configure set aws_access_key_id AKIAX37JIUKZRIVQUWCL && aws configure set aws_secret_access_key 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  && aws configure set AWS_DEFAULT_REGION us-east-1 && aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
     "deploy:api": "cd udagram/udagram-api && eb deploy udagram-dev",
     "deploy": "npm-run-all deploy:fe"
   },
