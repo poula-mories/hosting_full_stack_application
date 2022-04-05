@@ -12,8 +12,6 @@ commands:
         
 jobs:
   install:
-    docker: 
-      - image: cimg/node:16.13.1
     steps:
       - checkout
       - run: npm i
@@ -23,6 +21,9 @@ jobs:
             - node_modules
             - package.json
             - udagram/*
+    docker: 
+      - image: cimg/node:16.13.1
+      
   build:
     docker:
       - image: cimg/node:16.13.1
