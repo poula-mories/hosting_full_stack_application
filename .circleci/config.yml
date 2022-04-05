@@ -52,8 +52,6 @@ jobs:
             eb setenv \
             AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
             AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-            POSTGRES_USERNAME=postgres \
-            POSTGRES_PASSWORD=postgres \
             JWT_SECRET=""
       - run: npm run deploy # Deploys frontend & api
 
