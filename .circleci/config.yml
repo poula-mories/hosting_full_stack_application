@@ -16,7 +16,7 @@ jobs:
       - image: cimg/node:16.13.1
     steps:
       - checkout
-      - run: cd udagram/udagram-frontend && npm i && cd udagram/udagram-api && npm i
+      - run: npm i
       - persist_to_workspace:
           root: .
           paths:
