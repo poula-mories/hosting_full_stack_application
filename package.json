@@ -6,9 +6,9 @@
     "build:fe": "cd udagram/udagram-frontend && npm run build",
     "build:api": "cd udagram/udagram-api && npm run build",
     "build": "npm-run-all build:*",
-    "deploy:fe": "export AWS_ACCESS_KEY_ID=AKIAX37JIUKZRIVQUWCL export AWS_SECRET_ACCESS_KEY=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 export AWS_DEFAULT_REGION=us-east-1 && aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
+    "deploy:fe": "aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
     "deploy:api": "cd udagram/udagram-api && eb deploy udagram-dev",
-    "deploy": "npm-run-all deploy:*"
+    "deploy": "npm-run-all deploy:fe"
   },
   "author": "",
   "license": "ISC",
