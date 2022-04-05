@@ -3,7 +3,12 @@
     "install:fe": "cd udagram/udagram-frontend && npm i",
     "install:api": "cd udagram/udagram-api && npm i",
     "install": "npm-run-all install:*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:fe": "cd udagram/udagram-frontend && npm run build -- --prod",
+    "build:api": "cd udagram/udagram-api && npm run build",
+    "build": "npm-run-all build:*",
+    "deploy:fe": "aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
+    "deploy:api": "cd udagram/udagram-api && eb deploy udagram-dev",
+    "deploy": "npm-run-all deploy:*"
   },
   "author": "",
   "license": "ISC",
