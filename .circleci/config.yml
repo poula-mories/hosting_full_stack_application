@@ -49,6 +49,8 @@ jobs:
           command: |
             cd udagram/udagram-api
             eb init udagram -r us-east-1 -p node.js
+            eb create udagram-dev
+            eb use udagram-dev
             eb setenv \
             ENV=dev \
             POSTGRES_USERNAME=postgres \
