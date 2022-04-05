@@ -49,8 +49,6 @@ jobs:
           command: |
             cd udagram/udagram-api
             eb init udagram -r us-east-1 -p node.js
-            eb create udagram-api
-            eb use udagram-api
             eb setenv \
             AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
             AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
