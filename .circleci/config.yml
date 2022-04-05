@@ -60,6 +60,8 @@ workflows:
       - build:
           requires:
           - install
+          context: udagram_context
       - deploy:
           requires:
             - build 
+          context: udagram_context
