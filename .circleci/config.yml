@@ -49,10 +49,6 @@ jobs:
           command: |
             cd udagram/udagram-api
             eb init udagram -r us-east-1 -p node.js
-            eb setenv \
-            AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-            AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-            JWT_SECRET=""
       - run: npm run deploy # Deploys frontend & api
 
 
