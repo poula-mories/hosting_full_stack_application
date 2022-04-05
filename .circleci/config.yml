@@ -11,6 +11,12 @@ commands:
       - run: sudo ./aws/install
         
 jobs:
+  test:
+    docker: 
+      - image: cimg/node:16.13.1
+    steps:
+      - checkout
+
   install:
     docker: 
       - image: cimg/node:16.13.1
@@ -73,6 +79,7 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
+      - test
       - install:
           filters:
             branches:
