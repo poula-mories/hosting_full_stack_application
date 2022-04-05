@@ -42,8 +42,8 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - aws-elastic-beanstalk/setup # Sets up EB CLI
       - install_aws # Install AWS CLI to deploy frontend to S3
+      - aws-elastic-beanstalk/setup # Sets up EB CLI
       - run:
           name: Prepare api for deployment
           command: |
