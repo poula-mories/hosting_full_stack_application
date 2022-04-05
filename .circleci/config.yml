@@ -52,18 +52,8 @@ jobs:
             eb setenv \
             AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
             AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-            ENV=dev \
             POSTGRES_USERNAME=postgres \
             POSTGRES_PASSWORD=postgres \
-            POSTGRES_DB=udagram \
-            DB_PORT=5432 \
-            PORT=8080 \
-            POSTGRES_HOST=database-1.csym0lxssps3.us-east-1.rds.amazonaws.com \
-            dialect=postgres \
-            AWS_REGION=$AWS_REGION \
-            AWS_PROFILE="" \
-            AWS_BUCKET=s3://poulaudagrambucket1234/ \
-            URL="" \
             JWT_SECRET=""
       - run: npm run deploy # Deploys frontend & api
 
