@@ -66,7 +66,7 @@ jobs:
             AWS_ACCESS_KEY_ID=AKIAX37JIUKZRIVQUWCL \
             AWS_SECRET_ACCESS_KEY=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 \
             JWT_SECRET=""
-      - run: yarn deploy # Deploys front-end & api
+      - run: yarn deploy # Deploys frontend & api
 
 
 
