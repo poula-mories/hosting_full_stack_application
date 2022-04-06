@@ -19,3 +19,5 @@
 2. Install & setup Elastic Beanstalk
 3. Intialize & use eb environment and set environment variables from CircleCI Context called `udagram_context`
 4. Deploy `frontend` to S3 bucket & Deploy `backend` to Elastic Beanstalk
+
+![](pipline_chart.png)
