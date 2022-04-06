@@ -57,7 +57,10 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - install
+      - install:
+          filters:
+            branches:
+              only: master # Other jobs depend on it, so when it doesn't run, Other jobs won't
       - build:
           requires:
           - install
