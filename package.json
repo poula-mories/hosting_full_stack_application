@@ -9,7 +9,7 @@
     "test:fe": "cd udagram/udagram-frontend && npm run test",
     "test:api": "cd udagram/udagram-api && npm run test",
     "test": "npm run test:*",
-    "deploy:fe": "AWS_ACCESS_KEY_ID=AKIAX37JIUKZRIVQUWCL AWS_SECRET_ACCESS_KEY=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 AWS_DEFAULT_REGION=us-east-1 aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
+    "deploy:fe": "aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
     "deploy:api": "cd udagram/udagram-api && eb deploy",
     "deploy": "npm-run-all deploy:*"
   },
