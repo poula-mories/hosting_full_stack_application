@@ -9,7 +9,7 @@
     "test:fe": "cd udagram/udagram-frontend && npm run test",
     "test:api": "cd udagram/udagram-api && npm run test",
     "test": "npm run test:*",
-    "deploy:fe": "aws s3 cp udagram/udagram-frontend/www/ s3://poulaudagrambucket1234/ --recursive --acl public-read",
+    "deploy:fe": "cd udagram/udagram-frontend && aws s3 cp ./www s3://poulaudagrambucket1234/ --recursive --acl public-read",
     "deploy:api": "cd udagram/udagram-api && eb deploy",
     "deploy": "npm-run-all deploy:*"
   },
