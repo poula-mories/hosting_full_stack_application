@@ -60,7 +60,7 @@ workflows:
       - install:
           filters:
             branches:
-              only: master # Other jobs depend on it, so when it doesn't run, Other jobs won't
+              only: main # Other jobs depend on it, so when it doesn't run, Other jobs won't
       - build:
           requires:
           - install
