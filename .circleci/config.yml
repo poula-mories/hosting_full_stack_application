@@ -49,10 +49,10 @@ jobs:
           at: .
 #       - install_aws # Install AWS CLI to deploy frontend to S3
       # - aws-elastic-beanstalk/setup # Sets up EB CLI
-      - run:
-          name: Prepare api for deployment
-          command: |
-            cd udagram/udagram-api
+      # - run:
+      #     name: Prepare api for deployment
+      #     command: |
+      #       cd udagram/udagram-api
       - run: npm run deploy # Deploys frontend & api
 
 
