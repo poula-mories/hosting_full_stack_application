@@ -18,6 +18,9 @@ jobs:
       - image: cimg/node:16.13.1
     steps:
       - checkout
+      - node/install
+      - aws-cli/setup
+      - ebs-cli/setup
       - run: npm i
       - persist_to_workspace:
           root: .
@@ -45,7 +48,7 @@ jobs:
       - attach_workspace:
           at: .
 #       - install_aws # Install AWS CLI to deploy frontend to S3
-      - aws-elastic-beanstalk/setup # Sets up EB CLI
+      # - aws-elastic-beanstalk/setup # Sets up EB CLI
       - run:
           name: Prepare api for deployment
           command: |
