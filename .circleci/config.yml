@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.1
   aws-cli: circleci/aws-cli@2.1.0
-  s3-cli: circleci/aws-s3@3.0.0
+#   s3-cli: circleci/aws-s3@3.0.0
   ebs-cli: circleci/aws-elastic-beanstalk@2.0.1
 # commands:
 #   install_aws: # Installs AWS CLI
@@ -63,7 +63,7 @@ workflows:
       - install:
           filters:
             branches:
-              only: main # Other jobs depend on it, so when it doesn't run, Other jobs won't
+              only: main/master  # Other jobs depend on it, so when it doesn't run, Other jobs won't
           context: udagram_context
       - build:
           requires:
