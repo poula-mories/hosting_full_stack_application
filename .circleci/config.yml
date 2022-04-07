@@ -63,7 +63,7 @@ workflows:
       - install:
           filters:
             branches:
-              only: main/master  # Other jobs depend on it, so when it doesn't run, Other jobs won't
+              only: /hosting_full_stack_application\/.*/  # Other jobs depend on it, so when it doesn't run, Other jobs won't
           context: udagram_context
       - build:
           requires:
