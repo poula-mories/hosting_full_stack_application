@@ -63,7 +63,7 @@ workflows:
       - install:
           filters:
             branches:
-              only: /udagram\/.*/  # Other jobs depend on it, so when it doesn't run, Other jobs won't
+              only: main  # Other jobs depend on it, so when it doesn't run, Other jobs won't
           context: udagram_context
       - build:
           requires:
