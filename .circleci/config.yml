@@ -23,8 +23,9 @@ jobs:
             - package.json
             - udagram/*
   build:
-    docker:
-      - image: cimg/node:16.13.1
+    executor: aws-cli/default
+    # docker:
+    #   - image: cimg/node:16.13.1
     steps:
       - attach_workspace:
           at: .
@@ -36,8 +37,9 @@ jobs:
             - package.json
             - udagram/*
   deploy:
-    docker:
-      - image: cimg/node:16.13.1
+    executor: aws-cli/default
+    # docker:
+    #   - image: cimg/node:16.13.1
     steps:
       - attach_workspace:
           at: .
