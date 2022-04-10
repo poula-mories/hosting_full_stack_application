@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Front-End Deploy
           command: |
+<<<<<<< HEAD
             cd udagram-frontend
             aws s3 cp --recursive --acl public-read ./www s3://poulaudagrambucket1234/
       - run:
@@ -45,3 +46,7 @@ workflows:
           branches:
             only: 
               - master
+=======
+            cd udagram/udagram-frontend
+            aws s3 cp --recursive --acl public-read ./www s3://poulaudagrambucket1234/
+>>>>>>> e49e84b7458d602f5eb74da02121911971498ca3
