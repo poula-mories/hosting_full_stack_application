@@ -1,71 +1,27 @@
 version: 2.1
-
 orbs:
   node: circleci/node@5.0.1
-  aws-cli: circleci/aws-cli@2.1.0
-#   s3-cli: circleci/aws-s3@3.0.0
-  ebs-cli: circleci/aws-elastic-beanstalk@2.0.1
-
-        
+  aws-cli: circleci/aws-cli@1.3.1
+  eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
-  install:   
-    executor: aws-cli/default
+  build:
+    docker:
+      - image: "cimg/base:stable"
     steps:
       - checkout
-      - node/install
       - aws-cli/setup
-      - ebs-cli/setup
-      - run: npm i
-      - persist_to_workspace:
-          root: .
-          paths:
-            - node_modules
-            - package.json
-            - udagram/*
-  build:
-    executor: aws-cli/default
-    # docker:
-    #   - image: cimg/node:16.13.1
-    steps:
-      - attach_workspace:
-          at: .
-      - run: npm run build # Builds front-end & api
-      - persist_to_workspace:
-          root: .
-          paths:
-            - node_modules/*
-            - package.json
-            - udagram/*
-  deploy:
-    executor: aws-cli/default
-    # docker:
-    #   - image: cimg/node:16.13.1
-    steps:
-      - attach_workspace:
-          at: .
-#       - install_aws # Install AWS CLI to deploy frontend to S3
-      # - aws-elastic-beanstalk/setup # Sets up EB CLI
-      # - run:
-      #     name: Prepare api for deployment
-      #     command: |
-      #       cd udagram/udagram-api
-      - run: npm run deploy # Deploys frontend & api
-
-
-
-workflows:
-  build_and_deploy:
-    jobs:
-      - install:
-          filters:
-            branches:
-              only: main  # Other jobs depend on it, so when it doesn't run, Other jobs won't
-          context: udagram_context
-      - build:
-          requires:
-          - install
-          context: udagram_context
-      - deploy:
-          requires:
-            - build 
-          context: udagram_context
+      - node/install
+      - eb/setup
+      - run:
+          name: Front-End install
+          command: |
+            npm run frontend:install
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      - run:
+          name: Front-End Deploy
+          command: |
+            cd udagram-frontend
+            aws s3 cp --recursive --acl public-read ./www s3://poulaudagrambucket1234/
