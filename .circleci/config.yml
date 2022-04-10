@@ -5,17 +5,11 @@ orbs:
   aws-cli: circleci/aws-cli@2.1.0
 #   s3-cli: circleci/aws-s3@3.0.0
   ebs-cli: circleci/aws-elastic-beanstalk@2.0.1
-# commands:
-#   install_aws: # Installs AWS CLI
-#     steps:
-#       - run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" 
-#       - run: unzip awscliv2.zip
-#       - run: sudo ./aws/install
+
         
 jobs:
-  install:
-    docker: 
-      - image: cimg/node:16.13.1
+  install:   
+    executor: aws-cli/default
     steps:
       - checkout
       - node/install
